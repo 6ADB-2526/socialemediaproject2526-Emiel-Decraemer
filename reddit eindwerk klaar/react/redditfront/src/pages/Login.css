@@ -1,0 +1,100 @@
+/* pages/Login.css */
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    /* Centreert horizontaal */
+    align-items: center;
+    /* Centreert verticaal */
+    min-height: 70vh;
+    /* Neemt 70% van de hoogte van het scherm in beslag */
+}
+
+.login-box {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    width: 100%;
+    max-width: 400px;
+    /* Zorgt dat de box niet te breed wordt */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.login-box h2 {
+    margin-top: 0;
+    color: #1a1a1b;
+}
+
+.login-subtitle {
+    font-size: 12px;
+    color: #787c7e;
+    margin-bottom: 24px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    /* Label boven de input zetten */
+}
+
+.form-group label {
+    font-size: 12px;
+    font-weight: bold;
+    color: #787c7e;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+
+.form-group input {
+    padding: 12px;
+    border: 1px solid #edeff1;
+    border-radius: 4px;
+    background-color: #f6f7f8;
+    font-size: 14px;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #0079d3;
+    /* Blauwe rand bij selecteren */
+    background-color: #ffffff;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #0079d3;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.submit-btn:hover {
+    background-color: #1483d6;
+}
+
+.register-redirect-text {
+    margin-top: 25px;
+    font-size: 14px;
+    text-align: center;
+    color: #57646f;
+    /* Subtiel grijs voor de gewone tekst */
+}
+
+.register-redirect-text a {
+    color: #0079d3;
+    /* Reddit blauw voor de link */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.register-redirect-text a:hover {
+    text-decoration: underline;
+    /* Onderstrepen als je eroverheen hovert */
+}

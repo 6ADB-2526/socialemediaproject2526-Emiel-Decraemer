@@ -1,0 +1,16 @@
+/* App.css */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #dae0e6;
+  /* De typische lichtgrijze Reddit achtergrond */
+}
+
+.main-content {
+  max-width: 1200px;
+  /* Voorkomt dat je app op grote schermen te breed wordt */
+  margin: 0 auto;
+  /* Centreert de content op je scherm */
+  padding: 20px;
+  /* Geeft wat ademruimte aan de binnenkant */
+}

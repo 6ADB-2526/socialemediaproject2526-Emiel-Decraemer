@@ -1,0 +1,247 @@
+/* pages/Home.css */
+
+.home-container {
+    display: grid;
+    /* We maken 2 koloms: de eerste neemt alle beschikbare ruimte (1fr), 
+     de tweede (sidebar) heeft een vaste breedte van 312px */
+    grid-template-columns: 1fr 312px;
+    /* Een tussenruimte (gap) van 24px tussen de kolommen */
+    grid-gap: 24px;
+}
+
+/* Styling voor een losse post-kaart */
+.post-card {
+    display: flex;
+    /* Binnen de post gebruiken we flexbox: votes links, tekst rechts */
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+.post-votes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: bold;
+    margin-right: 15px;
+    color: #474748;
+}
+
+.post-meta {
+    font-size: 12px;
+    color: #787c7e;
+    margin: 0 0 5px 0;
+}
+
+.post-content h3 {
+    margin: 0;
+    color: #222222;
+}
+
+/* Styling voor de Sidebar-kaart */
+.sidebar-card {
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 15px;
+    height: fit-content;
+    /* Zorgt dat de balk niet langer wordt dan de inhoud */
+}
+
+/* Responsive design: op kleine schermen (mobiel) verbergen we de sidebar 
+   en wordt de post-feed 100% breed */
+@media (max-width: 768px) {
+    .home-container {
+        grid-template-columns: 1fr;
+        /* Nog maar 1 kolom over */
+    }
+
+    .sidebar-card {
+        display: none;
+        /* Verberg de sidebar op mobiel */
+    }
+}
+
+.post-body-text {
+    margin-top: 10px;
+    color: #4f5e66;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.vote-count {
+    margin: 4px 0;
+    font-size: 12px;
+}
+
+/* Stem-sectie styling */
+.post-votes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 15px;
+    background-color: #f8f9fa;
+    /* Lichtgrijze achtergrond voor de stembalk */
+    padding: 8px 4px;
+    border-radius: 4px;
+    height: fit-content;
+}
+
+.vote-btn {
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    color: #878a8c;
+    /* Standaard grijze pijl */
+    transition: color 0.1s ease;
+    padding: 2px 6px;
+}
+
+/* Reddit oranje bij hover en actieve upvote */
+.vote-btn.up:hover,
+.vote-btn.upvoted {
+    color: #ff4500;
+}
+
+/* Reddit blauw bij hover en actieve downvote */
+.vote-btn.down:hover,
+.vote-btn.downvoted {
+    color: #7193ff;
+}
+
+/* De getallen inkleuren */
+.vote-count {
+    font-weight: bold;
+    font-size: 13px;
+    margin: 4px 0;
+    color: #1a1a1b;
+}
+
+.vote-count.text-up {
+    color: #ff4500;
+}
+
+.vote-count.text-down {
+    color: #7193ff;
+}
+
+.create-post-card {
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+.create-post-card h3 {
+  margin-top: 0;
+  margin-bottom: 12px;
+  color: #1a1a1b;
+  font-size: 16px;
+}
+
+.create-post-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.create-post-card input, .create-post-card textarea {
+  padding: 10px;
+  border: 1px solid #edeff1;
+  background-color: #f6f7f8;
+  border-radius: 4px;
+  font-family: inherit;
+}
+
+.create-post-card textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+.post-submit-btn {
+  align-self: flex-end;
+  background-color: #0079d3;
+  color: white;
+  border: none;
+  padding: 8px 24px;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.post-submit-btn:hover {
+  background-color: #1484d6;
+}
+
+.login-prompt-card {
+  background-color: #f6f7f8;
+  border: 1px dashed #ccc;
+  padding: 15px;
+  text-align: center;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  color: #57646f;
+}
+
+/* Compacte inklapbare balk */
+.compact-post-trigger {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    cursor: pointer;
+}
+
+.compact-post-trigger input {
+    flex-grow: 1;
+    pointer-events: none;
+    /* Zorgt dat de klik overal op de div registreert */
+}
+
+/* Flexbox voor de actie-knoppen onderaan het formulier */
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 5px;
+}
+
+/* Annuleerknop styling */
+.cancel-btn {
+    background: none;
+    border: 1px solid #878a8c;
+    color: #878a8c;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.cancel-btn:hover {
+    background-color: #f6f7f8;
+    color: #1a1a1b;
+    border-color: #1a1a1b;
+}
+
+/* Styling voor de Lees meer / Minder weergeven knop */
+.toggle-expand-btn {
+    background: none;
+    border: none;
+    color: #0079d3;
+    /* Reddit blauw */
+    font-weight: bold;
+    font-size: 13px;
+    cursor: pointer;
+    padding: 0;
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.toggle-expand-btn:hover {
+    text-decoration: underline;
+}
