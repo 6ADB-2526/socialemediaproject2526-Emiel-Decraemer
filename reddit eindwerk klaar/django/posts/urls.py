@@ -1,13 +1,15 @@
 from django.urls import path
-from rest_framework.authtoken.views import obtain_auth_token
-from .views import PostListCreateView, RegisterView, VotePostView
+from .views import PostListCreateView, PostDetailView, register_view, CustomLoginView, PostVoteView, PostHideToggleView
 
 urlpatterns = [
+    # Posts
     path('posts/', PostListCreateView.as_view(), name='post-list-create'),
-    path('register/', RegisterView.as_view(), name='register'),
-    
-    # Dit pad reageert op /api/login/ (omdat core/urls.py er 'api/' voor zet)
-    path('login/', obtain_auth_token, name='api-login'),
-    
-    path('posts/<int:post_id>/vote/', VotePostView.as_view(), name='vote-post'),
+    path('posts/<int:pk>/', PostDetailView.as_view(), name='post-detail'),
+    path('posts/<int:pk>/vote/', PostVoteView.as_view(), name='post-vote'),
+    path('posts/<int:pk>/hide/', PostHideToggleView.as_view(), name='post-hide-toggle'),
+
+    # Authenticatie (Hier sluit React op aan!)
+    path('register/', register_view, name='api-register'),
+    path('login/', CustomLoginView.as_view(), name='api-login'),
 ]
+

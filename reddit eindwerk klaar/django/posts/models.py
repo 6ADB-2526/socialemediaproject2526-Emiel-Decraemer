@@ -4,18 +4,17 @@ from django.contrib.auth.models import User
 class Post(models.Model):
     title = models.CharField(max_length=200)
     content = models.TextField()
+    # Veld voor de afbeelding. Pillow verwerkt dit.
+    image = models.ImageField(upload_to='post_images/', blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='posts')
+    is_hidden = models.BooleanField(default=False)
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
 
     def __str__(self):
         return self.title
-
-    # Handige extra functie: berekent direct de totale score (upvotes minus downvotes)
-    @property
-    def score(self):
-        # Tel alle 'value' velden van de gekoppelde votes bij elkaar op
-        return self.votes.aggregate(models.Sum('value'))['value__sum'] or 0
-
 
 class Vote(models.Model):
     # Welke gebruiker stemt?

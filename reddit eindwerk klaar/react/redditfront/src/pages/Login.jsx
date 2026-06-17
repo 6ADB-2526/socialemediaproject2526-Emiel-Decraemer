@@ -29,9 +29,8 @@ function Login() {
       if (response.ok) {
         // Sla het token en de username op in de browser
         localStorage.setItem('token', data.token);
-        localStorage.setItem('username', username);
+        localStorage.setItem('username', data.username);
 
-        alert('Succesvol ingelogd!');
         navigate('/'); // Stuur de gebruiker terug naar de home-feed
         window.location.reload(); // Ververs de pagina om de header direct te updaten
       } else {
@@ -42,6 +41,7 @@ function Login() {
     }
   };
 
+  
   return (
     <div className="login-container">
       <div className="login-box"> {/* Witte kaart start */}

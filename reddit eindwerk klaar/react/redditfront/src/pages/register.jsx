@@ -12,6 +12,16 @@ function Register() {
     e.preventDefault();
     setError(''); // Reset eventuele oude foutmeldingen
 
+    if (password.length < 8) {
+    setError('Wachtwoord moet minimaal 8 tekens lang zijn.');
+    return;
+    }
+
+    if (!/[A-Z]/.test(password)) {
+    setError('Wachtwoord moet minimaal één hoofdletter bevatten.');
+    return;
+    }
+
     try {
       // LET OP: Controleer of deze URL exact overeenkomt met je Django backend!
       const response = await fetch('http://127.0.0.1:8000/api/register/', {
@@ -33,7 +43,6 @@ function Register() {
         localStorage.setItem('token', data.token);
         localStorage.setItem('username', data.username);
 
-        alert('Account succesvol aangemaakt!');
         navigate('/'); // Stuur de gebruiker naar de homepage
         window.location.reload(); // Ververs de pagina om de nieuwe login-status te laden
       } else {

@@ -12,7 +12,6 @@ function Header() {
     localStorage.removeItem('token');
     localStorage.removeItem('username');
     
-    alert('Je bent succesvol uitgelogd!');
     navigate('/'); // Stuur de gebruiker terug naar de homepage
     window.location.reload(); // Ververs de pagina om de interface te updaten
   };
